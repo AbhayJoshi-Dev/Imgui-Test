@@ -148,7 +148,7 @@ int main(int argc, char *argv[])
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.Fonts->AddFontFromFileTTF("lazy.ttf", 18.0f, NULL, NULL);
+    io.Fonts->AddFontFromFileTTF("font.ttf", 18.0f, NULL, NULL);
 
     // setup Dear ImGui style
     //ImGui::StyleColorsDark();
