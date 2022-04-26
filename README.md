@@ -40,4 +40,7 @@ An experiment for learning imgui
   - on `Windows` with `Visual Studio` installed, it will generate a `.sln`
   - on `Linux` with `make` installed, it will generate a `Makefile`
   - on `Mac` with `xcode` installed, it will generate a `.xcodeproj`
-  
+
+## Resources
+
+Thanks to this article - https://decovar.dev/blog/2019/05/26/sdl-imgui/
