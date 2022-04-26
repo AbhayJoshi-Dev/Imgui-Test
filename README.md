@@ -1,6 +1,6 @@
 # Imgui-Test
 
-An experiment for learning and building [imgui](https://github.com/ocornut/imgui) with [SDL2](https://github.com/libsdl-org/SDL) and [glad](https://github.com/Dav1dde/glad)
+A project for learning and building [imgui](https://github.com/ocornut/imgui) with [SDL2](https://github.com/libsdl-org/SDL) and [glad](https://github.com/Dav1dde/glad)
 
 ## Demo
 
