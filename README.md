@@ -1,6 +1,6 @@
 # Imgui-Test
 
-A project for learning and building [imgui](https://github.com/ocornut/imgui) with [SDL2](https://github.com/libsdl-org/SDL) and [glad](https://github.com/Dav1dde/glad)
+A project for learning and building [imgui](https://github.com/ocornut/imgui) with [SDL2](https://github.com/libsdl-org/SDL)
 
 ## Demo
 
@@ -40,7 +40,3 @@ A project for learning and building [imgui](https://github.com/ocornut/imgui) wi
   - on `Windows` with `Visual Studio` installed, it will generate a `.sln`
   - on `Linux` with `make` installed, it will generate a `Makefile`
   - on `Mac` with `xcode` installed, it will generate a `.xcodeproj`
-
-## Resources
-
-Thanks to this article - https://decovar.dev/blog/2019/05/26/sdl-imgui/
