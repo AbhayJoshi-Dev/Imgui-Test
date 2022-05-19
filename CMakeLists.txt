@@ -28,11 +28,7 @@ set(IMGUI_HEADER_FILES
 add_library(imgui STATIC ${IMGUI_SOURCE_FILES} ${IMGUI_HEADER_FILES})
 target_include_directories(imgui PUBLIC external/imgui/)
 
-
-file(GLOB IMGUI_TEST_SOURCE_FILES *.cpp)
-file(GLOB IMGUI_TEST_HEADER_FILES *.h)
-
-add_executable(Imgui_Test ${IMGUI_TEST_SOURCE_FILES} ${IMGUI_TEST_HEADER_FILES})
+add_executable(Imgui_Test main.cpp)
 
 target_link_libraries(Imgui_Test
         imgui

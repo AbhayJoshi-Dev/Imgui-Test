@@ -7,3 +7,4 @@ bin-int/
 .vscode/
 vendor/
 resources/
+test.cpp
