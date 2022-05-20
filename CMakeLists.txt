@@ -38,5 +38,4 @@ target_link_libraries(Imgui_Test
 
 add_custom_command(TARGET Imgui_Test POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different
                     "${CMAKE_SOURCE_DIR}/build/external/SDL/Debug/SDL2d.dll"
-                    "${CMAKE_SOURCE_DIR}/font.ttf"
                     $<TARGET_FILE_DIR:Imgui_Test>)

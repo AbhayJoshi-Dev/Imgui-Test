@@ -35,6 +35,8 @@ int main(int, char**)
     bool running = true;
     bool openWindow = false;
 
+    ImVec4 color = ImVec4(0.f, 0.f, 0.f, 1.f);
+
     while(running)
     {
         SDL_Event event;
@@ -65,6 +67,7 @@ int main(int, char**)
         }
 
         ImGui::Checkbox("Open Another Window", &openWindow);
+        ImGui::ColorEdit3("Color", (float *)&color);
 
         //second window
         if(openWindow)
@@ -80,7 +83,7 @@ int main(int, char**)
         ImGui::End();
 
         ImGui::Render();
-        ImGui::Render();
+        SDL_SetRenderDrawColor(renderer, (Uint8)(color.x * 255), (Uint8)(color.y * 255), (Uint8)(color.z * 255), (Uint8)(color.w * 255));
         SDL_RenderClear(renderer);
         ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
         SDL_RenderPresent(renderer);

@@ -4,7 +4,7 @@ A project for learning and building [imgui](https://github.com/ocornut/imgui) wi
 
 ## Demo
 
-![](https://i.imgur.com/Shf77Db.png)
+![](https://i.imgur.com/bDpSEJr.png)
 
 ## Build Instructions
 
