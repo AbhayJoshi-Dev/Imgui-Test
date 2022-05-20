@@ -14,7 +14,7 @@ int main(int, char**)
 
     SDL_Window* window = SDL_CreateWindow("Imgui-Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_SHOWN);
 
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
     if(renderer == NULL)
     {
         std::cout << "ERROR: " << SDL_GetError() << std::endl;
@@ -26,8 +26,14 @@ int main(int, char**)
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
 
+    ImGui::StyleColorsDark();
+
+    ImGui_ImplSDL2_InitForSDLRenderer(window, renderer);
+    ImGui_ImplSDLRenderer_Init(renderer);
+
 
     bool running = true;
+    bool openWindow = false;
 
     while(running)
     {
@@ -35,14 +41,55 @@ int main(int, char**)
 
         while(SDL_PollEvent(&event))
         {
+            ImGui_ImplSDL2_ProcessEvent(&event);
             if(event.type == SDL_QUIT)
+            {
+                running = false;
+            }
+
+            if(event.type == SDL_WINDOWEVENT && event.window.type == SDL_WINDOWEVENT_CLOSE && event.window.windowID == SDL_GetWindowID(window))
             {
                 running = false;
             }
         }
 
-        std::cout << "1" << std::endl;
+        ImGui_ImplSDLRenderer_NewFrame();
+        ImGui_ImplSDL2_NewFrame();
+        ImGui::NewFrame();
+
+        ImGui::Begin("Hello World!");
+        ImGui::Text("Important Stuff...");
+        if(ImGui::Button("Save"))
+        {
+            std::cout << "Saved!" << std::endl;
+        }
+
+        ImGui::Checkbox("Open Another Window", &openWindow);
+
+        //second window
+        if(openWindow)
+        {
+            ImGui::Begin("New Window");
+            ImGui::Text("Saving Work...");
+            if(ImGui::Button("Close"))
+                openWindow = false;
+            
+            ImGui::End();
+        }
+
+        ImGui::End();
+
+        ImGui::Render();
+        ImGui::Render();
+        SDL_RenderClear(renderer);
+        ImGui_ImplSDLRenderer_RenderDrawData(ImGui::GetDrawData());
+        SDL_RenderPresent(renderer);
+
     }
+
+    ImGui_ImplSDLRenderer_Shutdown();
+    ImGui_ImplSDL2_Shutdown();
+    ImGui::DestroyContext();
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
